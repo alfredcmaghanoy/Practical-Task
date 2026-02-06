@@ -41,6 +41,16 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; 
+          then
+            echo "Installing dependencies..."
+            pip install -r requirements.txt
+          else
+            echo "No dependencies to install"
+          fi
           
       - name: Run tests
         run: |
